@@ -1,9 +1,10 @@
 pipeline {
-  agent {
-    docker { image 'node:16-alpine' }
+  agent  any
+  environment {
+    PATH = "/usr/local/bin:/usr/bin:/bin:/usr/bin/docker"
   }
   stages {
-    stage('Test') {
+    stage('Build') {
       steps {
         sh 'node --version'
       }
